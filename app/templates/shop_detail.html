@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class='shop_items'>
+    <img src="{{item.image.url}}" alt="">
+    <div class="shop_detail_information">
+        <h1>Товар {{ item.title }}</h1>
+        <p>Цена: {{ item.price }}₽</p>
+        <a href="{% url 'cart'%}"><button>В корзину</button></a>
+    </div>   
+        
+
+</main> 
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="{% url 'home' %}"><img src="{% static 'img/logov3.png' %}" alt="Logo" class="logotype"></a>
+        </div>
+
+        <div class="nav">
+            <ul>
+                <li><a href="{% url 'home' %}">Главная страница</a></li>
+                <li><a href="{% url 'about' %}">О нас</a></li>
+                <li><a href="{% url 'shop' %}">Товары</a></li>
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'profile' %}">Личный кабинет</a></li>
+                {% else %}
+                    <li><a href="{% url 'register' %}">Войти в аккаунт</a></li>
+                {% endif %}
+            </ul>
+        </div>
+
+    </header>
+
+
+    {% block content %}
+
+
+    {% endblock %}
+
+
+</body>
+
+</html>

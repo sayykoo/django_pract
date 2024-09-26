@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <main class='about_person'>
+        {% for i in authors%}
+        <div class="information">
+            <img src="{{i.images.url}}" alt="" class='main__image'>
+            <p>{{i.first_name}} {{i.last_name}}</p>
+        </div>              
+        {% endfor %}
+    </main>
+    
+
+{% endblock %}

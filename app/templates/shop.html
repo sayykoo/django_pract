@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="shop">
+    <h2>Товары</h2>
+    <div class="search">
+        <form action="{% url 'search' %}" method="get">
+            <input type="text" name="search" placeholder="Поиск">
+            <button type="submit"><i class='bx bx-search-alt'></i></button>
+            <a href="{% url 'shop' %}"><i class='bx bx-x'></i></a>
+        </form>
+    </div>
+    <div class="items">
+        {% for i in shop_item %}
+        <div class="items_list">
+            <img src="{{i.image.url}}" alt="" class="item_shop_image">
+            <p class="title">{{i.title}}</p>
+            <p class="price">{{i.price}}₽</p>
+            <a href="{% url 'shop_detail' i.id %}"><button>Подробнее</button></a>
+        </div>
+        {% endfor %}
+    </div>
+ 
+    
+</main>
+    
+{% endblock %}

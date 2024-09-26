@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+
+
+    <div class="">
+        <div class="">
+            <h2>Оформление заказа</h2>
+        </div>
+
+        <form action="{% url 'create_order' %}" method='post'> 
+
+            {{ OrderForm.as_p }}
+            <button type="submit">Заказать</button>
+
+        </form>
+    </div>
+
+</main>
+
+{% endblock %}
